@@ -1,14 +1,12 @@
 # Mirroring
 
 ## Generate the SSH keys
-To generate the SSH keys, the OpenSSh are used for **macOS** or **Linux**. We start by using the following commands.  
-$ ssh-keygen   
-**Prompt to select a location for keys**  
-**NOTE**: By default, all ssh keys are stored under ~/.ssh directory with filenames id_rsa(private_key) and id_rsa.pub (public key).  
-**OUTPUT**  
+To generate the SSH keys in **macOS** or **Linux** with OpenSSh, follow the commands below.  
+$ ssh-keygen in home directory prompts to select the location for keys.          
+**NOTE**: By default, all ssh keys are stored under ~/.ssh directory with filenames id_rsa(private_key) and id_rsa.pub (public key).   
 Generating public/private rsa key pair.  
-Enter the file to save the key (/home/satyakp/.ssh/id_rsa).  
-Following, your system will generate the SSH key pair:     
+Enter the filepath to save the key (/home/satyakp/.ssh/id_rsa).  
+Your system will know generate the SSH key pair.     
 
 **Output is displayed as below**
 <p align="left">
@@ -17,25 +15,26 @@ Following, your system will generate the SSH key pair:
 
 ## Setup deploy keys in GITHUB repository
 
-To add the deploy keys on **Github** move to **Github repository**, **settings/deploy keys** add our generated public key from **bitbucket** is added and **writing permissions should be granted**.
+To add the deployment keys on **Github** move to **Github repository**, then to **settings/deploy keys** add our generated public key from **bitbucket** by granting **writing permissions**.
 
 ## Create a custom bitbucket-pipeline.yml file
 
 On **bitbucket repository**, create **bitbucket-pipelines.yml** file. 
-Adjust the **name** accordingly inside the **custom**. For example, in the below picture, the name is **mirror-to-github** on line>
+Adjust the **name** accordingly inside the **custom**.  
+For example, on line 5 in the below picture (**mirror-to-github**). 
 <p align="left">
   <img src="./images/bitb ucket_pipelines.png" alt="Size Limit CLI" width="538">
 </p>
 
 ## Setup Github
 
-### Create Github & workflow folder
+### Create workflows
 
-In Github account, **create the workflows folder** and create a **release.yml file**.
+In Github account, click **actions** and click **setup the workflow yourself** which eventually **creates the workflows**  in your **.github folder**.
 
 ## Create a custom github release.yml file
 
-To customize the **release.yml** file, we recommend everyone to use the template as mentioned in the below image.
+Then add **release.yml** file in your **workflows directory**
 
 <p align="left">
   <img src="./images/release.yml.png" alt="Size Limit CLI" width="538">
@@ -47,13 +46,18 @@ We have two ways of executing workflows on **bitbucket**.
 - The Branch view
 - The commits section
 
-To execute the workflow from **branch view** go to **bitbucket repository** and go to **branches** and run the **pipelines.yml**file by selecting the **run pipeline for branch**. Then click **run**
-If you would like to execute the workflow from **commits section**, then go to **commits view** and select **run pipeline**. Then click **run**.
+To execute the workflow from **branch view** go to **bitbucket repository** and then click **branches** and run the **pipelines.yml** file by selecting the **run pipeline for branch**. Then click **run**.
+
+If you would like to execute the workflow from **commits section**, click **commits view** and select **run pipeline**. Then click **run**.
 
 ## Setup Github secrets for the release to CGE channels
 
-To **generate secrets**,  go to **settings**, then **actions** and **add new repository secret**. The below image is the example on how to setup the secrets.
+To **generate secrets**, 
+1. move on to **settings**, 
+2. click **actions** 
+3. add **new repository secret**.
 
+The below image is the example on how to setup the secrets.
 <p align="left">
   <img src="./images/secrets_edited.png" alt="Size Limit CLI" width="538">
 </p>
@@ -64,10 +68,12 @@ Refer these generated Tokens in the repository to use them in workflows and othe
 
 ## Required files for executing releases:
 
-**version.py** - To maintain the sematic version of the application in python format.
+**version.py** - To maintain the sematic version of the application in python format.  
 **Dockerfile** - This file contains source path of the code that is build as dockerimage.  
 **meta.yaml** - This file contains the source code details of kma project which will be used to build in anaconda distribution.  
 **version.yaml** - Workflow file that triggers the events, builds and helps to push the latest changes into dockerhub and anaconda distribution.
+
+For detailed project structure, please visit the Boilerplate_Releases main page. 
 
 ## Docker
 
@@ -100,6 +106,6 @@ We follow the same as **dockerhub** for **conda distribution**
 When we want to create a new release, follow these steps:
 
 1. Update the version in your project's **version.py** file(e.g: 1.2.3)
-2. Commit the changes (**git commit -am v1.2.3**)
+2. Commit the changes (**git commit -m v1.2.3**)
 3. Tag your commit (**git tag v1.2.3**). Make sure your tag name's format is **v*.*.***. Your workflow will use this tag to detect when to create a release.
 4. Push your changes to **Github** (**git push && git push --tags**)
