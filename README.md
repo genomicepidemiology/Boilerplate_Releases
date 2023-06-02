@@ -1,14 +1,15 @@
 # Mirroring
 
 ## Generate the SSH keys
-SSH keys are two long strings of characters that are used to authenticate the identity of user requesting for remote server. We generate the SSH kets with OpenSSh that are used for **macOS** or **Linux*>
-$ ssh-keygen
-**Prompt to select a location for keys**
-**NOTE: By default, all ssh keys are stored under ~/.ssh directory with filenames id_rsa(private_key) and id_rsa.pub (public key).
-**OUTPUT**
-Generating public/private rsa key pair.
-Enter the file to save the key (/home/satyakp/.ssh/id_rsa):
-Following, your system will generate the SSH key pair:   
+To generate the SSH keys, the OpenSSh are used for **macOS** or **Linux**. We start by using the following commands.  
+$ ssh-keygen   
+**Prompt to select a location for keys**  
+**NOTE**: By default, all ssh keys are stored under ~/.ssh directory with filenames id_rsa(private_key) and id_rsa.pub (public key).  
+**OUTPUT**  
+Generating public/private rsa key pair.  
+Enter the file to save the key (/home/satyakp/.ssh/id_rsa).  
+Following, your system will generate the SSH key pair:     
+
 **Output is displayed as below**
 <p align="left">
   <img src="./images/ssh_key_output.png" alt="Size Limit CLI" width="538">
@@ -63,11 +64,10 @@ Refer these generated Tokens in the repository to use them in workflows and othe
 
 ## Required files for executing releases:
 
-version.py - To maintain the sematic version of the application in python format.
-Dockerfile - This file contains source path of the code that is build as dockerimage.
-meta.yaml - This file contains the source code details of kma project which will be used to build in anaconda distribution.
-conda_build_yaml_file - This file includes the channels and dependencies required for the project.
-version.yaml - Workflow file that triggers the events, builds and helps to push the latest changes into dockerhub and anaconda distribution.
+**version.py** - To maintain the sematic version of the application in python format.
+**Dockerfile** - This file contains source path of the code that is build as dockerimage.  
+**meta.yaml** - This file contains the source code details of kma project which will be used to build in anaconda distribution.  
+**version.yaml** - Workflow file that triggers the events, builds and helps to push the latest changes into dockerhub and anaconda distribution.
 
 ## Docker
 
