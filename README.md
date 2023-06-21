@@ -2,7 +2,7 @@
 
 ## Generate the SSH keys
 To generate the SSH keys in **macOS** or **Linux** with OpenSSh, follow the commands below.  
-$ ssh-keygen in home directory prompts to select the location for keys.          
+$ ssh-keygen -t ecdsa -b 521 in home directory prompts to select the location for keys.          
 **NOTE**: By default, all ssh keys are stored under ~/.ssh directory with filenames id_rsa(private_key) and id_rsa.pub (public key).   
 Generating public/private rsa key pair.  
 Enter the filepath to save the key (/home/satyakp/.ssh/id_rsa).  
