@@ -5,14 +5,14 @@ To generate the SSH keys in **macOS** or **Linux** with OpenSSh, follow the comm
 $ ssh-keygen -t ecdsa -b 521 in home directory prompts to select the location for keys.          
 **NOTE**: By default, all ssh keys are stored under ~/.ssh directory with filenames id_rsa(private_key) and id_rsa.pub (public key).   
 Generating public/private rsa key pair.  
-Enter the filepath to save the key (/home/satyakp/.ssh/id_rsa).  
+Enter the filepath to save the key (/home/satyakp/.ssh/id_ecdsa): <name of the keys>  
 Your system will know generate the SSH key pair.     
 
 **Output is displayed as below**
 <p align="left">
   <img src="./images/ssh_key_output.png" alt="Size Limit CLI" width="538">
 </p>
-
+cat <name of the keys>*
 ## Setup deploy keys in GITHUB repository
 
 To add the deployment keys on **Github** move to **Github repository**, then to **settings/deploy keys** add our generated public key from **bitbucket** by granting **writing permissions**.
