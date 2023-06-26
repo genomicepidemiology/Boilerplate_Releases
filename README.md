@@ -67,11 +67,10 @@ Refer these generated Tokens in the repository to use them in workflows and othe
 # Releases:
 
 ## Required files for executing releases:
-
-**version.py** - To maintain the sematic version of the application in python format.  
+  
 **Dockerfile** - This file contains source path of the code that is build as dockerimage.  
 **meta.yaml** - This file contains the source code details of kma project which will be used to build in anaconda distribution.  
-**version.yaml** - Workflow file that triggers the events, builds and helps to push the latest changes into dockerhub and anaconda distribution.
+**releases.yml** - Workflow file that triggers the events, builds and helps to push the latest changes into dockerhub and anaconda distribution.
 
 For detailed project structure, please visit the Boilerplate_Releases main page. 
 
@@ -105,7 +104,7 @@ We follow the same as **dockerhub** for **conda distribution**
 
 When we want to create a new release, follow these steps:
 
-1. Update the version in your project's **version.py** file(e.g: 1.2.3)
+1. Update the code changes and use (**git add --all**)
 2. Commit the changes (**git commit -m v1.2.3**)
 3. Tag your commit (**git tag v1.2.3**). Make sure your tag name's format is **v*.*.***. Your workflow will use this tag to detect when to create a release.
 4. Push your changes to **Github** (**git push && git push --tags**)
