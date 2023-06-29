@@ -1,5 +1,12 @@
-# Mirroring
+#
+This repository will guide us on hosting the packages on anaconda distribution and dockerhub.
+To host the packages on specific conda channels, we follow three-step procedure:
+1) Mirroring or pushing the code from bitbucket to github
+2) Creating releases files
+3) Hosting the packages into conda and docker
 
+## Mirroring
+  To push the code from bitbucket into github, we need to generate ssh keys and use these keys on both github and bitbucket ssh keys. Below is the clear explanation of generating and using the ssh keys. 
 ## Generate the SSH keys
 To generate the SSH keys in **macOS** or **Linux** with OpenSSh, follow the commands below.  
 $ ssh-keygen -t ecdsa -b 521 in home directory prompts to select the location for keys.          
@@ -12,7 +19,7 @@ Your system will know generate the SSH key pair.
 <p align="left">
   <img src="./images/ssh_key_output.png" alt="Size Limit CLI" width="538">
 </p>
-cat <name of the keys>*
+
 ## Setup deploy keys in GITHUB repository
 
 To add the deployment keys on **Github** move to **Github repository**, then to **settings/deploy keys** add our generated public key from **bitbucket** by granting **writing permissions**.
